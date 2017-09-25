@@ -1,4 +1,24 @@
-<table border="1" class="dataframe">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#f5f5f5}
+</style>
+</head>
+<body>
+<table id="mytab1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -8,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr id="ch1">
       <th>1</th>
       <td>Nouns</td>
       <td>09/25/17</td>
@@ -148,3 +168,17 @@
     </tr>
   </tbody>
 </table>
+<script>
+var table = document.getElementById("mytab1");
+console.log(table.rows.length)
+for (var i = table.rows.length - 1, row; row = table.rows[i]; i--) {
+   //iterate through rows
+   //rows would be accessed using the "row" variable assigned in the for loop
+   if (new Date().getTime() > Date.parse(row.cells[2].innerHTML)) {
+     row.style['background-color'] = '#f4f938';
+     break;
+   }
+}
+</script>
+</body>
+</html>
